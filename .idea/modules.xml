@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Teaching-HEIGVD-RES-2021-Labo-SMTP.iml" filepath="$PROJECT_DIR$/.idea/Teaching-HEIGVD-RES-2021-Labo-SMTP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Smpt_Prank.iml" filepath="$PROJECT_DIR$/Smpt_Prank.iml" />
     </modules>
   </component>
 </project>
