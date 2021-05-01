@@ -63,7 +63,7 @@ public class PrankGenerator {
         while (victimsRemaining.size() > 0){
             currentGroup = groupes.get(cpt);
             cpt = (cpt + 1) % groupes.size();
-            currentGroup.addMember(victims.remove(0));
+            currentGroup.addMember(victimsRemaining.remove(0));
         }
         return groupes;
     }

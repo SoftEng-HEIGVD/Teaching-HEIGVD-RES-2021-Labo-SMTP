@@ -28,10 +28,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ebf7281-2daf-4cbe-bb43-6f3248d6a591" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/ConfigurationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/IConfigurationManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/config/ConfigurationManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/config/IConfigurationManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/model/mail/Groupe.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/model/mail/Message.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/model/mail/Personne.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/model/prank/Prank.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/model/prank/PrankGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/smtp/ISmtpClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Smpt_Prank/main/java/smtp/SmtpClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/smtp/ISmtpClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/smtp/SmtpClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/messages.utf8" beforeDir="false" afterPath="$PROJECT_DIR$/config/messages.utf8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/victims.utf8" beforeDir="false" afterPath="$PROJECT_DIR$/config/victims.utf8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/prank/Prank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/prank/Prank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/prank/PrankGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/prank/PrankGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +54,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -68,6 +81,19 @@
     <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.Main" />
+      <module name="Smpt_Prank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -79,6 +105,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,7 +119,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619865680457</updated>
-      <workItem from="1619865682110" duration="8911000" />
+      <workItem from="1619865682110" duration="9511000" />
+      <workItem from="1619888209173" duration="767000" />
+      <workItem from="1619889048433" duration="3525000" />
     </task>
     <servers />
   </component>
@@ -105,6 +138,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="371" y="96" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1619868870600">
@@ -115,6 +149,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1619867146111" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1619892953932">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619892953932" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1619892953931">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619892953931" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1619892953931">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619892953931" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1619892953931">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619892953931" />
+    <state x="337" y="54" key="git4idea.branch.GitSmartOperationDialog" timestamp="1619888841815">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="54" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.680@0.0.1280.680" timestamp="1619888841815" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1619877705186">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
