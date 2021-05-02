@@ -20,8 +20,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
 
 import org.apache.commons.io.FileUtils;
 
@@ -31,9 +29,9 @@ public class PrankGenerator {
     private final static int MINIMUM_GROUP_SIZE = 3;
     private final static String END_OF_GROUP = "==========";
 
-    private ServerProperties server;
-    private MessageList messages;
-    private VictimList victims;
+    private final ServerProperties server;
+    private final MessageList messages;
+    private final VictimList victims;
 
     private Group[] groups;
 
@@ -51,21 +49,21 @@ public class PrankGenerator {
         }
 
         ArrayList<Prank> pranks = new ArrayList<>();
-        for(int i = 0; i < groups.length; i++) {
+        for (Group group : groups) {
             Prank p = new Prank();
 
-            int randomIndex = Utils.randInt(groups[i].size());
-            Person sender = groups[i].getMember(randomIndex);
+            int randomIndex = Utils.randInt(group.size());
+            Person sender = group.getMember(randomIndex);
 
-            ArrayList<Person> recipients = groups[i].getMembers();
+            ArrayList<Person> recipients = group.getMembers();
             recipients.remove(randomIndex);
 
             p.setSender(sender);
             p.setRecipients(recipients);
 
-            if(!server.getEmailCCs()[0].equalsIgnoreCase("none")) {
+            if (!server.getEmailCCs()[0].equalsIgnoreCase("none")) {
                 ArrayList<Person> ccs = new ArrayList<>();
-                for(String email : server.getEmailCCs()) {
+                for (String email : server.getEmailCCs()) {
                     ccs.add(new Person(email));
                 }
                 p.setWitnesses(ccs);
@@ -74,7 +72,7 @@ public class PrankGenerator {
             Message message = messages.getRandomMessage();
             p.setMessage(message);
 
-            p.setGroupId(groups[i].getId());
+            p.setGroupId(group.getId());
 
             pranks.add(p);
         }
@@ -108,9 +106,9 @@ public class PrankGenerator {
     }
 
     private void createGroupFile(ArrayList<Prank> pranks) throws IOException {
-        File outDir = new File("out");
+        File outDir = new File("target\\out");
         if(!outDir.exists()) {
-            Files.createDirectory(Paths.get("out"));
+            Files.createDirectory(Paths.get("target\\out"));
         } else {
             File[] filesOut = outDir.listFiles();
             if(filesOut != null) {
@@ -130,11 +128,11 @@ public class PrankGenerator {
         StringBuilder content = new StringBuilder();
 
         for(Prank p : pranks) {
-            content.append("Group " + p.getGroupId() + " - " + p.numberOfMembers() + " members" + CRLF);
-            content.append("From:" + p.getSender().getEmail() + CRLF);
-            content.append("To: " + CRLF);
+            content.append("Group ").append(p.getGroupId()).append(" - ").append(p.numberOfMembers()).append(" members").append(CRLF);
+            content.append("From: ").append(p.getSender().getEmail()).append(CRLF);
+            content.append("To:" + CRLF);
             for(Person r : p.getRecipients()) {
-                content.append("\t" + r.getEmail() + CRLF);
+                content.append("\t").append(r.getEmail()).append(CRLF);
             }
             content.append(CRLF);
             content.append(END_OF_GROUP + CRLF);

@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class VictimList {
-    private ArrayList<Person> people;
-    private int sizeList;
+    private final ArrayList<Person> people;
+    private final int sizeList;
 
     public VictimList(String filename) throws IOException, IncorrectFormatEmail, EmptyList {
         people = new ArrayList<>();

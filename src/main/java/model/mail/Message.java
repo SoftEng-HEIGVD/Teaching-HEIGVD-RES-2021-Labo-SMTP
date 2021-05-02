@@ -1,7 +1,5 @@
 package model.mail;
 
-import java.util.ArrayList;
-
 public class Message {
     public final static String contentType = "Content-Type: text/plain; charset=utf-8";
     public final static String CRLF = "\r\n";

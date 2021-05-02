@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.Properties;
 
 public class ServerProperties {
+    private final static int DEFAULT_PORT = 25;
+
     private final String filename;
 
     private String serverAddress;
@@ -23,7 +25,12 @@ public class ServerProperties {
         serverConfig.load(input);
 
         serverAddress = serverConfig.getProperty("smtpServerAddress");
+
         serverPort = Integer.parseInt(serverConfig.getProperty("smtpServerPort"));
+        if(serverPort <= 0) {
+            serverPort = DEFAULT_PORT;
+        }
+
         nbVictimGroups = Integer.parseInt(serverConfig.getProperty("numberOfGroups"));
         emailCCs = serverConfig.getProperty("witnessesToCC").split(",");
 

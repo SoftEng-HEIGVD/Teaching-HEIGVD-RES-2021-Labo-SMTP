@@ -3,7 +3,7 @@ package model.mail;
 import model.exception.IncorrectFormatEmail;
 
 public class Person {
-    private String email;
+    private final String email;
 
     public Person(String email) throws IncorrectFormatEmail {
         if(!correctFormatEmail(email)) {

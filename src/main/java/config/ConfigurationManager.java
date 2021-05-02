@@ -6,9 +6,9 @@ import model.exception.IncorrectFormatEmail;
 import java.io.IOException;
 
 public class ConfigurationManager {
-    private ServerProperties serverProperties;
-    private MessageList messageList;
-    private VictimList victimList;
+    private final ServerProperties serverProperties;
+    private final MessageList messageList;
+    private final VictimList victimList;
 
     public ConfigurationManager() throws EmptyList, IOException, IncorrectFormatEmail {
         serverProperties = new ServerProperties("data/config.properties");

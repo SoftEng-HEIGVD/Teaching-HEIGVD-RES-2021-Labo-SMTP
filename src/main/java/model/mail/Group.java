@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Group {
     private static int nbGroups = 0;
 
-    private int id;
+    private final int id;
     private ArrayList<Person> members;
 
     public Group() {
@@ -35,12 +35,12 @@ public class Group {
 
     @Override
     public String toString() {
-        String res = "Group " + id + "\r\n";
-        res += "Members :" + "\r\n";
+        StringBuilder res = new StringBuilder("Group " + id + "\r\n");
+        res.append("Members :" + "\r\n");
         for(Person p : members) {
-            res += p + "\r\n";
+            res.append(p).append("\r\n");
         }
 
-        return res;
+        return res.toString();
     }
 }

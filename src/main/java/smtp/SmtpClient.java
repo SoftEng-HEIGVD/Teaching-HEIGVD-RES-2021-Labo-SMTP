@@ -20,8 +20,8 @@ public final class SmtpClient {
     public static final String CMD_DATA = "DATA";
     public static final String CMD_END_OF_DATA = CRLF + "." + CRLF;
 
-    private String serverAddress;
-    private int port;
+    private final String serverAddress;
+    private final int port;
 
     public SmtpClient(String smtpServerAddress, int port) {
         serverAddress = smtpServerAddress;

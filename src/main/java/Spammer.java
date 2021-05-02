@@ -1,7 +1,6 @@
 import config.ConfigurationManager;
 import config.ServerProperties;
 import model.exception.*;
-import model.mail.Person;
 import model.prank.Prank;
 import model.prank.PrankGenerator;
 import smtp.SmtpClient;
@@ -26,16 +25,14 @@ public class Spammer {
         SmtpClient smtp = new SmtpClient(address, port);
 
         if(server.getChosenGroups()[0] == 0) {
-            System.out.println("not");
             for(Prank p : pranks) {
                 smtp.sendMessage(p);
             }
         } else {
-            System.out.println("inhere");
-            int[] groups = server.getChosenGroups();
-            for(int i = 0; i < groups.length; i++) {
-                int groupId = groups[i] - 1;
-                if(groupId < nbGroups) {
+            int[] ids = server.getChosenGroups();
+            for (int id : ids) {
+                int groupId = id - 1;
+                if (groupId < nbGroups) {
                     smtp.sendMessage(pranks.get(groupId));
                 } else {
                     throw new IndexOutOfBoundsException("GroupId exceeds the number of groups");
