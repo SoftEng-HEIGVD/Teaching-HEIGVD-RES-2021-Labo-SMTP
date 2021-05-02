@@ -9,3 +9,7 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+.idea/
+out/
+src/test/
+Teaching-HEIGVD-RES-2021-Labo-SMTP.iml
