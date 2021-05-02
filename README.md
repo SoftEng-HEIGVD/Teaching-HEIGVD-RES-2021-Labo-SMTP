@@ -38,7 +38,7 @@ Once you have extracted the executable file to any place that you like, you can 
 You can now launch __Spammer__ which will read your configuration in 3 files mentioned above. After refreshing the browser you'll see the prank made on your victim list.
 
 ## Description of implementation
-![Simplified UML of __Spammer__](https://github.com/mhganh/Teaching-HEIGVD-RES-2021-Labo-SMTP/tree/main/figures/schema.jpg?raw=true "Simplified UML of __Spammer__ without Utils and Exceptions")
+![Simplified UML of __Spammer__](https://github.com/mhganh/Teaching-HEIGVD-RES-2021-Labo-SMTP/tree/main/figures/schema.png?raw=true "Simplified UML of __Spammer__ without Utils and Exceptions")
 
 The logic of the application remains in 2 classes: `ConfigurationManager` and `PrankGenerator`.
 
