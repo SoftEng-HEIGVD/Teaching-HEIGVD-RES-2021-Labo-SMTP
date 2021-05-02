@@ -1,16 +1,10 @@
 package config;
 
-import model.exception.IncorrectFormatEmail;
-import model.mail.Person;
-
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Properties;
 
 public class ServerProperties {
-    private String filename;
+    private final String filename;
 
     private String serverAddress;
     private int serverPort;

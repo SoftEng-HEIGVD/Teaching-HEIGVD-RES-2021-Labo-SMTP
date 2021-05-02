@@ -8,8 +8,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class MessageList {
-    private final static String END_OF_MESSAGE = "===========";
-    private final static String MESSAGE_SUBJECT = "Subject";
+    private final static String END_OF_MESSAGE = "(==========)";
 
     private Message[] messages;
     private int nbMessages;
@@ -46,14 +45,17 @@ public class MessageList {
             throw new EmptyList("There is no message in the file");
         }
 
-        String[] splitedMessages = allMessages.toString().split("(==========)");
+        String[] splitedMessages = allMessages.toString().split(END_OF_MESSAGE);
         nbMessages = splitedMessages.length;
 
         StringBuilder[] splitedMessagesBuilder = new StringBuilder[nbMessages];
         splitedMessagesBuilder[0] = new StringBuilder(splitedMessages[0]);
         for(int i = 1; i < nbMessages; i++) {
             splitedMessagesBuilder[i] = new StringBuilder(splitedMessages[i]);
+
+            //delete '\r' at the beginning of each message
             splitedMessagesBuilder[i].deleteCharAt(0);
+            //delete '\n' at the beginning of each message
             splitedMessagesBuilder[i].deleteCharAt(0);
         }
 

@@ -5,6 +5,7 @@ import config.MessageList;
 import config.ServerProperties;
 import config.VictimList;
 import model.exception.GroupMinimumSizeException;
+import model.exception.IncorrectFormatEmail;
 import model.exception.NoGroupCreated;
 import model.mail.Group;
 import model.mail.Message;
@@ -24,6 +25,8 @@ import java.util.Locale;
 
 import org.apache.commons.io.FileUtils;
 
+import static model.mail.Message.CRLF;
+
 public class PrankGenerator {
     private final static int MINIMUM_GROUP_SIZE = 3;
     private final static String END_OF_GROUP = "==========";
@@ -42,7 +45,7 @@ public class PrankGenerator {
         groups = null;
     }
 
-    public ArrayList<Prank> generatePranks() throws NoGroupCreated, IOException {
+    public ArrayList<Prank> generatePranks() throws NoGroupCreated, IOException, IncorrectFormatEmail {
         if(groups == null) {
             throw new NoGroupCreated("Please form groups before generate pranks");
         }
@@ -60,13 +63,15 @@ public class PrankGenerator {
             p.setSender(sender);
             p.setRecipients(recipients);
 
-            Message message = messages.getRandomMessage();
-
-            message.setFrom(sender.getEmail());
-            message.setTo(personsToEmails(recipients));
             if(!server.getEmailCCs()[0].equalsIgnoreCase("none")) {
-                message.setCc(new ArrayList<>(Arrays.asList(server.getEmailCCs())));
+                ArrayList<Person> ccs = new ArrayList<>();
+                for(String email : server.getEmailCCs()) {
+                    ccs.add(new Person(email));
+                }
+                p.setWitnesses(ccs);
             }
+
+            Message message = messages.getRandomMessage();
             p.setMessage(message);
 
             p.setGroupId(groups[i].getId());
@@ -86,7 +91,7 @@ public class PrankGenerator {
         groups = new Group[nbGroups];
 
         if(nbVictims % nbGroups < MINIMUM_GROUP_SIZE || nbVictims < nbGroups * MINIMUM_GROUP_SIZE) {
-            throw new GroupMinimumSizeException("Every group must be at least " + MINIMUM_GROUP_SIZE);
+            throw new GroupMinimumSizeException("There is a group with size less than " + MINIMUM_GROUP_SIZE);
         }
 
         int groupSize = (int) Math.ceil((double)nbVictims / nbGroups);
@@ -100,15 +105,6 @@ public class PrankGenerator {
             }
             groups[j].addMember(vL.get(i));
         }
-    }
-
-    private ArrayList<String> personsToEmails(ArrayList<Person> persons) {
-        ArrayList<String> res = new ArrayList<>();
-        for(Person p : persons) {
-            res.add(p.getEmail());
-        }
-
-        return res;
     }
 
     private void createGroupFile(ArrayList<Prank> pranks) throws IOException {
@@ -134,14 +130,14 @@ public class PrankGenerator {
         StringBuilder content = new StringBuilder();
 
         for(Prank p : pranks) {
-            content.append("Group " + p.getGroupId() + "\r\n");
-            content.append("From:" + p.getSender().getEmail() + "\r\n");
-            content.append("To: " + "\r\n");
+            content.append("Group " + p.getGroupId() + " - " + p.numberOfMembers() + " members" + CRLF);
+            content.append("From:" + p.getSender().getEmail() + CRLF);
+            content.append("To: " + CRLF);
             for(Person r : p.getRecipients()) {
-                content.append("\t" + r.getEmail() + "\r\n");
+                content.append("\t" + r.getEmail() + CRLF);
             }
-            content.append("\r\n");
-            content.append(END_OF_GROUP + "\r\n");
+            content.append(CRLF);
+            content.append(END_OF_GROUP + CRLF);
         }
 
         writer.println(content);

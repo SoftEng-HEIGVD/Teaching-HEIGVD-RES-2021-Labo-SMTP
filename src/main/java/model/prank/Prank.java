@@ -54,4 +54,9 @@ public class Prank {
     public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
+
+    public int numberOfMembers() {
+        // 1 represents number of senders
+        return recipients.size() + 1;
+    }
 }

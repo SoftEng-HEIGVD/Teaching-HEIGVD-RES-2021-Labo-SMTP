@@ -28,7 +28,7 @@ public class Spammer {
         if(server.getChosenGroups()[0] == 0) {
             System.out.println("not");
             for(Prank p : pranks) {
-                smtp.sendMessage(p.getMessage());
+                smtp.sendMessage(p);
             }
         } else {
             System.out.println("inhere");
@@ -36,7 +36,7 @@ public class Spammer {
             for(int i = 0; i < groups.length; i++) {
                 int groupId = groups[i] - 1;
                 if(groupId < nbGroups) {
-                    smtp.sendMessage(pranks.get(groupId).getMessage());
+                    smtp.sendMessage(pranks.get(groupId));
                 } else {
                     throw new IndexOutOfBoundsException("GroupId exceeds the number of groups");
                 }

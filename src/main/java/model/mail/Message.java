@@ -3,37 +3,11 @@ package model.mail;
 import java.util.ArrayList;
 
 public class Message {
-    private String from;
-    private ArrayList<String> to;
-
-    private ArrayList<String> cc = null;
+    public final static String contentType = "Content-Type: text/plain; charset=utf-8";
+    public final static String CRLF = "\r\n";
 
     private String subject;
     private String body;
-
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public ArrayList<String> getTo() {
-        return to;
-    }
-
-    public void setTo(ArrayList<String> to) {
-        this.to = to;
-    }
-
-    public ArrayList<String> getCc() {
-        return cc;
-    }
-
-    public void setCc(ArrayList<String> cc) {
-        this.cc = cc;
-    }
 
     public String getSubject() {
         return subject;
